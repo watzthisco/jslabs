@@ -1,0 +1,27 @@
+{
+  "name": "modern-javascript-literacy",
+  "version": "1.0.0",
+  "description": "labs for modern javascript literacy courseware",
+  "engines": {
+    "node": "6.7.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/jasmine spec/test_runner.js; exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watzthisco/jslabs.git"
+  },
+  "author": "@watzthisco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/watzthisco/jslabs/issues"
+  },
+  "homepage": "https://github.com/watzthisco/jslabs#readme",
+  "devDependencies": {
+    "jasmine": "^2.5.3",
+    "jasmine-reporters": "^2.2.0",
+    "semver-compare": "^1.0.0"
+  }
+}
