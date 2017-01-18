@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfc92f22-600a-47ab-afcb-c27789f0042a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/css/positioning/absolute.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/css/positioning/fixed.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/css/positioning/relative.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/examples/css/positioning/static.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/solutions/lab04/contact.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/solutions/lab04/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/labs/lab04/contact.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/solutions/lab04/contact.html" afterPath="$PROJECT_DIR$/solutions/lab04/contact.html" />
     </list>
     <ignored path="jslabs.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,56 +38,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.html">
+      <file leaf-file-name="contact.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/solutions/lab04/contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="7" />
+            <state relative-caret-position="255">
+              <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="relative.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/css/positioning/relative.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="absolute.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/css/positioning/absolute.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fixed.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/examples/css/positioning/fixed.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="7" selection-start-line="23" selection-start-column="7" selection-end-line="23" selection-end-column="7" />
-              <folding>
-                <marker date="1484766616000" expanded="true" signature="31:422" ph="..." />
-                <marker date="1484766616000" expanded="true" signature="38:334" ph="..." />
-                <marker date="1484766616000" expanded="true" signature="114:326" ph="..." />
-                <marker date="1484766616000" expanded="true" signature="341:414" ph="..." />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="contact.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/solutions/lab04/contact.html">
+        <entry file="file://$PROJECT_DIR$/labs/lab04/contact.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+            <state relative-caret-position="120">
+              <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -102,16 +63,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
               <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -167,6 +118,7 @@
         <option value="$PROJECT_DIR$/examples/css/positioning/absolute.html" />
         <option value="$PROJECT_DIR$/examples/css/positioning/fixed.html" />
         <option value="$PROJECT_DIR$/solutions/lab04/css/main.css" />
+        <option value="$PROJECT_DIR$/labs/lab04/contact.html" />
         <option value="$PROJECT_DIR$/solutions/lab04/contact.html" />
       </list>
     </option>
@@ -280,6 +232,10 @@
               <option name="myItemId" value="labs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lab04" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -302,8 +258,8 @@
       <recent name="$PROJECT_DIR$/examples/css/positioning" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/spec" />
       <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/spec" />
     </key>
   </component>
   <component name="RunManager">
@@ -376,12 +332,12 @@
       <updated>1484090307295</updated>
       <workItem from="1484090308569" duration="843000" />
       <workItem from="1484509745343" duration="1027000" />
-      <workItem from="1484603861708" duration="8741000" />
+      <workItem from="1484603861708" duration="9689000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10611000" />
+    <option name="totallyTimeSpent" value="11559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="974" y="23" width="1224" height="1037" extended-state="0" />
@@ -550,7 +506,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="19" selection-start-line="0" selection-start-column="0" selection-end-line="9" selection-end-column="7" />
@@ -568,8 +524,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/solutions/lab04/contact.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+        <state relative-caret-position="255">
+          <caret line="17" column="26" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/labs/lab04/contact.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="68" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
           <folding />
         </state>
       </provider>
