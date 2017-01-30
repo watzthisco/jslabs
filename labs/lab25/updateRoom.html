@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="Tropo provision new number">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Update Room</title>
+</head>
+<body>
+<input id="newName" type="text" value="" placeholder="Enter a new room name" />
+<input type="button" value="do it!" id="go" />
+<div id="result"></div>
+
+<script>
+
+    var auth = "OGJhMDRhZmUtYzEwMC00NGNjLWJjZDItYjVhNjNhNzBjYTQ3YjhkN2NjMTMtMjM3";
+    var roomId = "Y2lzY29zcGFyazovL3VzL1JPT00vNzk4MTU5NDAtZTczMi0xMWU2LTkyMDUtODdlYjM5YWM4ZmIy"
+    var newName;
+
+    $(function() {
+
+        $("#go").on("click",function(){
+            newName = $('#newName').val();
+            console.log(newName);
+            $.ajax({
+                url: "https://api.ciscospark.com/v1/rooms/" + roomId,
+                method: "PUT",
+                headers: {
+                    "Authorization": "Bearer " + auth,
+                    "Content-type": "application/json"
+                },
+                data: {
+                    '"title"': '"' + newName + '"'
+                }
+
+            }).done(function(msg) {
+                $('#result').html(msg);
+            }).fail(function (jqXHR, exception) {
+                var msg = '';
+                if (jqXHR.status === 0) {
+                    msg = 'Didn\'t connect.\n Verify Network.';
+                } else if (jqXHR.status == 404) {
+                    msg = 'Requested page not found. [404]';
+                } else if (jqXHR.status == 500) {
+                    msg = 'Internal Server Error [500].';
+                } else if (exception === 'parsererror') {
+                    msg = 'Requested JSON parse failed.';
+                } else if (exception === 'timeout') {
+                    msg = 'Time out error.';
+                } else if (exception === 'abort') {
+                    msg = 'Ajax request aborted.';
+                } else {
+                    msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                }
+                $('#result').html(msg);
+            }).always(function() {
+                alert("ta-da!");
+            });
+
+        });
+    });
+</script>
+</body>
+</html>
