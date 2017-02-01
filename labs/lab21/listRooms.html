@@ -6,12 +6,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>List Rooms</title>
+    <style>
+        #result {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
+<select id="output_format">
+    <option value="pretty">pretty</option>
+    <option value="raw">raw</option>
+</select>
 <input type="button" value="List Rooms" id="go" />
 <div id="result"></div>
 
 <script>
+
+    function formatter(json,style) {
+        var output = '';
+        if (style === "pretty") {
+            for(var i = 0; i < json.items.length; i += 1) {
+                output += "Id: " + json.items[i].id + "<br>";
+                output += "Title: " + json.items[i].title + "<br><br>";
+            }
+        } else {
+            output = JSON.stringify(json);
+        }
+        return output;
+    }
 
     var auth = "OGJhMDRhZmUtYzEwMC00NGNjLWJjZDItYjVhNjNhNzBjYTQ3YjhkN2NjMTMtMjM3";
 
@@ -29,8 +51,9 @@
 
             }).done(function(data) {
                 console.log(data);
-                $('#result').html(JSON.stringify(data));
-
+                var selectedFormat = $('#output_format').val();
+                var output = formatter(data,selectedFormat);
+                $('#result').html(output);
             });
 
         });

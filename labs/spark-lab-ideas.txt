@@ -1,0 +1,12 @@
+Make a webhook, inspect http requests with requestBin
+
+Make a bot, write a node program to make it welcome people into a room
+    * maybe too complex. Could be broken into several labs.
+
+Can I do Tropo apps or do they all need to be Spark apps?
+
+Get Room data, use a function to format in different ways.
+
+
+
+
