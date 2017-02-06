@@ -15,7 +15,7 @@ const spark = new SparkAPIWrapper(process.env.SPARK_TOKEN);
 var myId;
 
 //
-// An unexamined life ...
+// WHO AM I?
 //
 spark.getMe(function(err, me) {
     if (!err) {
@@ -28,9 +28,7 @@ spark.getMe(function(err, me) {
     }
 });
 
-//
 // Agrees with everything
-//
 bot.onMessage(function(trigger, message) {
     if(trigger.data.personId != myId) {
         console.log("new message from: " + trigger.data.personEmail + ", text: " + message.text);
