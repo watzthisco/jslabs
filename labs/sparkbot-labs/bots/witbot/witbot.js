@@ -1,17 +1,55 @@
 'use strict';
+
 var SparkBot = require("node-sparkbot");
 var SparkAPIWrapper = require("node-sparkclient");
 let Wit = null;
-let interactive = null;
+let log = null;
 try {
     // if running from repo
     Wit = require('../').Wit;
-    interactive = require('../').interactive;
+    log = require('../').log;
 } catch (e) {
     Wit = require('node-wit').Wit;
-    interactive = require('node-wit').interactive;
+    log = require('node-wit').log;
 }
-const accessToken = 'WQDZKPAMABB4B73M66GFN3LHFL4FBZ7W';
+
+const WIT_TOKEN = process.env.WIT_TOKEN;
+
+const actions = {
+    send(request, response) {
+        const {sessionId, context, entities} = request;
+        const {text, quickreplies} = response;
+        console.log('sending...', JSON.stringify(response));
+        const recipientId = sessions[sessionId].sparkid;
+
+        //if (recipientId) {
+        console.log(text);
+        spark.createMessage(roomid, "" + text + "", {"markdown": true}, function (err, message) {
+            if (err) {
+                console.log("WARNING: could not post message to room: " + roomId);
+                return;
+            }
+        });
+        //}
+    },
+    getForecast({context, entities}) {
+        var location = firstEntityValue(entities, 'location');
+        if (location) {
+            context.forecast = 'sunny in ' + location; // we should call a weather API here
+            delete context.missingLocation;
+        } else {
+            context.missingLocation = true;
+            delete context.forecast;
+        }
+        return context;
+    }
+};
+
+const brain = new Wit({
+    accessToken: WIT_TOKEN,
+    actions,
+    logger: new log.Logger(log.INFO)
+});
 
 
 if (!process.env.SPARK_TOKEN) {
@@ -73,37 +111,9 @@ const findOrCreateSession = (sparkid) => {
     return sessionId;
 };
 
-const actions = {
-    send(request, response) {
-        const {sessionId, context, entities} = request;
-        const {text, quickreplies} = response;
-        console.log('sending...', JSON.stringify(response));
-        const recipientId = sessions[sessionId].sparkid;
 
-        //if (recipientId) {
-            console.log(text);
-            spark.createMessage(roomid, "" + text + "", {"markdown": true}, function (err, message) {
-                if (err) {
-                    console.log("WARNING: could not post message to room: " + message.roomId);
-                    return;
-                }
-            });
-        //}
-    },
-    getForecast({context, entities}) {
-        var location = firstEntityValue(entities, 'location');
-        if (location) {
-            context.forecast = 'sunny in ' + location; // we should call a weather API here
-            delete context.missingLocation;
-        } else {
-            context.missingLocation = true;
-            delete context.forecast;
-        }
-        return context;
-    },
-};
-const brain = new Wit({accessToken, actions});
-interactive(brain);
+
+
 const sessionId = findOrCreateSession(sparkid);
 
 bot.onMessage(function(trigger, message) {
@@ -138,4 +148,3 @@ bot.onMessage(function(trigger, message) {
             })
     }
 });
-
