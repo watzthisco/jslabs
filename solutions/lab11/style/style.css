@@ -1,0 +1,31 @@
+img {
+    position:absolute;
+    left: 50px;
+}
+
+p {
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 200px;
+    left: 370px;
+}
+
+div {
+    background-color: red;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 150px;
+    left: 40px
+}
+
+#first-picture {
+    background-color: blue;
+    width: 400px;
+    height: 450px;
+    position: absolute;
+    left: 500px;
+    top: 20px;
+}
