@@ -30,6 +30,7 @@ const wunderground = 'api.wunderground.com';
 const bot = new SparkBot();
 const spark = new SparkAPIWrapper(process.env.SPARK_TOKEN);
 var myId;
+var myName;
 
 //
 // WHO AM I?
@@ -42,24 +43,29 @@ spark.getMe(function(err, me) {
         console.log(me.avatar);
         console.log(me.created);
         myId = me.id;
+        myName = me.displayName;
     }
 });
 
 // Agrees with everything
 bot.onMessage(function(trigger, message) {
     if(trigger.data.personId != myId) {
-        console.log("new message from: " + trigger.data.personEmail + ", text: " + message.text);
-        //todo: filter out bot's name from message.text
 
-        spark.createMessage(message.roomId, "<@personEmail:" + trigger.data.personEmail + "> I agree.", {"markdown": true}, function (err, message) {
+        //remove the bot's name from the message
+        var zip = message.text;
+        console.log (myName);
+        zip = zip.replace(myName,'');
+        zip = zip.trim();
+        console.log("new message from: " + trigger.data.personEmail + ", text: " + zip);
+
+        spark.createMessage(message.roomId, "<@personEmail:" + trigger.data.personEmail + "> Let me see now....", {"markdown": true}, function (err, message) {
             if (err) {
                 console.log("WARNING: could not post message to room: " + command.message.roomId);
                 return;
             }
             var options = {
                 host: wunderground,
-                path: '/api/'+WEATHER_KEY+'/geolookup/conditions/q/IA/Cedar_Rapids.json'
-                //todo: get parameters from the room
+                path: '/api/'+WEATHER_KEY+'/geolookup/conditions/q/'+zip+'.json'
 
             };
             var callback = function(response){
@@ -69,7 +75,13 @@ bot.onMessage(function(trigger, message) {
                 });
                 response.on('end', function() {
                     console.log(str);
-                    //todo: output a message to the room
+                    str = JSON.parse(str);
+                    spark.createMessage(message.roomId, "<@personEmail:" + trigger.data.personEmail + "> "+str.current_observation.temp_f+ " degrees (F). " + str.current_observation.weather, {"markdown": true}, function (err, message) {
+                        if (err) {
+                            console.log("WARNING: could not post message to room: " + command.message.roomId);
+                            return;
+                        }
+                    });
                 });
             };
             var request = http.get(options,callback).end();
