@@ -1,0 +1,1 @@
+# A bot that knows when it's added to a room and says hello.
