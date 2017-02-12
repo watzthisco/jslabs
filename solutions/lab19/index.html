@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="Tropo provision new number">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Load Text</title>
+    <script>
+        $(document).ready(function(){
+            $('#getText').click(function() {
+                $.ajax({
+                    url: 'story.txt',
+                    success: function (data) {
+                        $('#result').html(data);
+                    }
+                });
+            });
+        })g
+    </script>
+</head>
+<body>
+<input type="button" value="Load The Text" id="getText" />
+<div id="result"></div>
+
+</body>
+</html>
