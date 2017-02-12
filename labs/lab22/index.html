@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <title>Painting Details</title>
+    <script>
+
+        var painting = {
+            museum: "The Met",
+            onDisplay: true,
+            artist: 'Vincent van Gogh',
+            title: 'Wheat Field with Cypresses',
+        };
+
+        $(document).ready(function(){
+            $('title').html(painting.title);
+            $('#painting-title').html(painting.title);
+            $('#artist-name').html(painting.artist);
+        });
+
+    </script>
+</head>
+<body>
+    <h1 id="painting-title"></h1>
+    <h2 id="artist-name"></h2>
+    <figure id="image"></figure>
+</body>
+</html>

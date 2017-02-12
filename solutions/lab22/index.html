@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    <title>Painting Details</title>
+    <script>
+
+        var painting = {
+            museum: "The Met",
+            onDisplay: true,
+            artist: 'Vincent van Gogh',
+            title: 'Wheat Field with Cypresses',
+            image: 'DT1567.jpg',
+            toggleDisplay: function(){
+                if(painting.onDisplay===true){
+                    painting.onDisplay = false;
+                    $('#image').fadeOut();
+                } else {
+                    painting.onDisplay = true;
+                    $('#image').fadeIn();
+                }
+                console.log('onDisplay is ' + painting.onDisplay);
+            }
+        };
+
+        $(document).ready(function(){
+            if(painting.onDisplay === true) {
+                $('#display').prop('checked',true);
+            }
+            $('title').html(painting.title);
+            $('#painting-title').html(painting.title);
+            $('#artist-name').html(painting.artist);
+            $('#image>img').attr('src','images/'+painting.image)
+                           .attr('alt',painting.title);
+            $('#display').change(painting.toggleDisplay);
+
+        });
+
+    </script>
+</head>
+<body>
+    <h1 id="painting-title"></h1>
+    <h2 id="artist-name"></h2>
+    <input type="checkbox" id="display"> On Display
+    <figure id="image">
+        <img src="" alt="painting" />
+    </figure>
+
+</body>
+</html>
