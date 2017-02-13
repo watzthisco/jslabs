@@ -24,7 +24,6 @@ if (!process.env.SPARK_TOKEN) {
     process.exit(1);
 }
 
-const wunderground = 'api.wunderground.com';
 
 
 const bot = new SparkBot();
@@ -64,7 +63,7 @@ bot.onMessage(function(trigger, message) {
                 return;
             }
             var options = {
-                host: wunderground,
+                host: 'api.wunderground.com',
                 path: '/api/'+WEATHER_KEY+'/geolookup/conditions/q/'+zip+'.json'
 
             };
