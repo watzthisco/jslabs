@@ -1,18 +1,19 @@
-//SPARK_TOKEN=ZTgzM2IyYTktNDAzOS00NzgzLTk1M2YtOWI5MThhZWIzMTk0ZDcxOWZmODEtM2I4 DEBUG=sparkbot* node addbot.js
+//to run
+// SPARK_TOKEN=XXXXXXXXXXXX DEBUG=sparkbot* node hellobot.js
+
 var SparkBot = require("node-sparkbot");
 var SparkAPIWrapper = require("node-sparkclient");
-
+var bot = new SparkBot();
 
 if (!process.env.SPARK_TOKEN) {
     console.log("Could not start as this bot requires a Cisco Spark API access token.");
     console.log("Please add env variable SPARK_TOKEN on the command line");
     console.log("Example: ");
-    console.log("> SPARK_TOKEN=XXXXXXXXXXXX DEBUG=sparkbot* node addbot.js");
+    console.log("> SPARK_TOKEN=XXXXXXXXXXXX DEBUG=sparkbot* node helloworld.js");
     process.exit(1);
 }
+var spark = new SparkAPIWrapper(process.env.SPARK_TOKEN);
 
-const bot = new SparkBot();
-const spark = new SparkAPIWrapper(process.env.SPARK_TOKEN);
 
 //
 // Welcome message
@@ -27,12 +28,21 @@ bot.onEvent("memberships", "created", function (trigger) {
     }
 
     // so happy to join
-    console.log("bot was just added to room: " + trigger.data.roomId);
+    console.log("bot's just added to room: " + trigger.data.roomId);
 
-    spark.createMessage(trigger.data.roomId, "Hi, I am the Hello World bot! I just say Hello.", { "markdown":true }, function(err, message) {
+    spark.createMessage(trigger.data.roomId, "Hi, I am the Hello World bot !\n\nType /hello to see me in action.", { "markdown":true }, function(err, message) {
         if (err) {
             console.log("WARNING: could not post Hello message to room: " + trigger.data.roomId);
             return;
+        }
+
+        if (message.roomType == "group") {
+            spark.createMessage(trigger.data.roomId, "**Note that this is a 'Group' room. I will wake up only when mentioned.**", { "markdown":true }, function(err, message) {
+                if (err) {
+                    console.log("WARNING: could not post Mention message to room: " + trigger.data.roomId);
+                    return;
+                }
+            });
         }
     });
 });
