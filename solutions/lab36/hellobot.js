@@ -36,13 +36,6 @@ bot.onEvent("memberships", "created", function (trigger) {
             return;
         }
 
-        if (message.roomType == "group") {
-            spark.createMessage(trigger.data.roomId, "**Note that this is a 'Group' room. I will wake up only when mentioned.**", { "markdown":true }, function(err, message) {
-                if (err) {
-                    console.log("WARNING: could not post Mention message to room: " + trigger.data.roomId);
-                    return;
-                }
-            });
-        }
+
     });
 });
