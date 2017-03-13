@@ -23,5 +23,8 @@
     "jasmine": "^2.5.3",
     "jasmine-reporters": "^2.2.0",
     "semver-compare": "^1.0.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0"
   }
 }
