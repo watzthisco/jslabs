@@ -25,6 +25,8 @@
     "semver-compare": "^1.0.0"
   },
   "dependencies": {
-    "bluebird": "^3.5.0"
+    "bluebird": "^3.5.0",
+    "promise": "^7.1.1",
+    "should": "^11.2.1"
   }
 }

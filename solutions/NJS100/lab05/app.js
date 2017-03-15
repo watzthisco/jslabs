@@ -1,8 +1,11 @@
-var sumModule = require('./sumModule.js');
+var http = require('http');
+var urlToGet = process.argv[2];
 
-sumModule(1,"egg",function(err,data){
-    if(err) throw err;
+http.get(urlToGet, function(response) {
 
-    console.log(data);
-
+    response.on("data", function(chunk) {
+        console.log("CHUNK: " + chunk.toString());
+    });
+}).on('error', function(e) {
+    console.log("Got error: " + e.message);
 });

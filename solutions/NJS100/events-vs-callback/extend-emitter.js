@@ -5,10 +5,6 @@ var Resource = require('./resource');
 var r = new Resource(7);
 
 r.on('start', function() {
-    console.log('Starting...');
-});
-
-r.on('start', function() {
     console.log("I've started!");
 });
 
